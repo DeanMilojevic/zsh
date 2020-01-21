@@ -46,6 +46,7 @@ alias sshdir="cd ~/.ssh"
 alias build="dotnet build"
 alias restore="dotnet restore"
 alias nuget-locals="dotnet nuget locals all --list"
+alias lc='colorls -lA --sd'
 
 runproject() {
   if [ "$1" != "" ]
@@ -84,3 +85,4 @@ source $ZSH/oh-my-zsh.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source $(dirname $(gem which colorls))/tab_complete.sh
