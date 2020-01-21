@@ -43,3 +43,9 @@
 [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 [fzf](https://github.com/junegunn/fzf)
+
+[colorls](https://github.com/athityakumar/colorls)
+
+## Fonts
+
+[Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
