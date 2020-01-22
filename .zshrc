@@ -57,6 +57,42 @@ runproject() {
   fi
 }
 
+classlib() {
+  if [ "$1" != "" ]
+  then
+    dotnet new classlib --name "$1"
+  else
+    echo "Provide a name for the project!"
+  fi
+}
+
+webapi() {
+  if [ "$1" != "" ]
+  then
+    dotnet new webapi --name "$1"
+  else
+    echo "Provide a name for the project!"
+  fi
+}
+
+xunit() {
+  if [ "$1" != "" ]
+  then
+    dotnet new xunit --name "$1"
+  else
+    echo "Provide a name for the project!"
+  fi
+}
+
+slnadd() {
+  if [ "$1" != "" ]
+  then
+    dotnet sln add "$1"
+  else
+    echo "Provide a project name to add to the solution!"
+  fi
+}
+
 dockerit() {
   if [ "$1" != "" ]
   then
