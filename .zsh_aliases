@@ -1,0 +1,36 @@
+alias desktop="cd ~/Desktop/"
+alias cls="clear"
+alias rmdir="rm -rf"
+alias l1="ls -1"
+alias ll="ls -1a"
+
+alias gotocode="cd ~/Desktop/code"
+alias htop="sudo htop"
+alias speedtest="speedtest-cli"
+
+alias zshconfig="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
+
+alias coverlet="~/.dotnet/tools/coverlet"
+
+alias az-login="az login"
+alias get-creds="az aks get-credentials"
+
+alias runsonport="lsof -i"
+alias topten="history | sort -rn | head"
+alias sshdir="cd ~/.ssh"
+alias lc='colorls -lA --sd'
+alias directory_size="du -sh *"
+
+alias build="dotnet build"
+alias restore="dotnet restore"
+alias nuget-locals="dotnet nuget locals all --list"
+alias newsln="dotnet new sln"
+
+alias run_nuget_server="sh /Users/dean/Desktop/code/nuget/run_nuget_server.sh"
+
+alias weather="curl v3.wttr.in"
+
+alias fzf="fzf --height 40% --preview 'cat {}' --preview-window right:60%:wrap"
+
+alias volumes="ls /Volumes"

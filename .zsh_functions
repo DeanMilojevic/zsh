@@ -1,0 +1,110 @@
+runproject() {
+  if [ "$1" != "" ]
+  then
+    dotnet run --project "$1"
+  else
+    echo "Provide a csproj to run!"
+  fi
+}
+
+console() {
+  if [ "$1" != "" ]
+  then
+    dotnet new console --name "$1"
+  else
+    echo "Provide a name for the project!"
+  fi
+}
+
+classlib() {
+  if [ "$1" != "" ]
+  then
+    dotnet new classlib --name "$1"
+  else
+    echo "Provide a name for the project!"
+  fi
+}
+
+grpc() {
+  if [ "$1" != "" ]
+  then
+    dotnet new grpc --name "$1"
+  else
+    echo "Provide a name for the project!"
+  fi
+}
+
+webapi() {
+  if [ "$1" != "" ]
+  then
+    dotnet new webapi --name "$1"
+  else
+    echo "Provide a name for the project!"
+  fi
+}
+
+xunit() {
+  if [ "$1" != "" ]
+  then
+    dotnet new xunit --name "$1"
+  else
+    echo "Provide a name for the project!"
+  fi
+}
+
+slnadd() {
+  if [ "$1" != "" ]
+  then
+    dotnet sln add "$1"
+  else
+    echo "Provide a project name to add to the solution!"
+  fi
+}
+
+dockerit() {
+  if [ "$1" != "" ]
+  then
+    docker exec -it "$1" /bin/bash
+  else
+    echo "Provide a pod to bash into!"
+  fi
+}
+
+coverage() {
+  if [ "$1" != "" ]
+  if [ "$2" != "" ]
+  then
+    coverlet "$1" --target "dotnet" --targetargs="test "$2" --no-build"
+  else
+    echo "Provide a test assembly and the path to the test project!"
+  fi
+}
+
+ddrun() {
+  local CURRENT_DIR=${$(pwd)}
+  docker run -v ${CURRENT_DIR}:/source -it dotnet /bin/bash
+}
+
+function gi() { curl -sL https://www.gitignore.io/api/$@ ;}
+
+_gitignoreio_get_command_list() {
+  curl -sL https://www.gitignore.io/api/list | tr "," "\n"
+}
+
+_gitignoreio () {
+  compset -P '*,'
+  compadd -S '' `_gitignoreio_get_command_list`
+}
+
+function unmount() {
+  [[ "$1" == "" ]] && {
+      echo "No partition's label specified!";
+      return -1;
+  }
+  disk=$(diskutil list | awk 'BEGIN { last_disk="" } /^\/dev\/disk/ { last_disk=$1 } ($2 ~ /'"$1"'/) || ($3 ~ /'"$1"'/) { print last_disk; exit }')
+  [[ "$disk" == "" ]] && {
+      echo "Disk with this label not found!";
+      return -2;
+  }
+  diskutil eject "$disk"
+}
